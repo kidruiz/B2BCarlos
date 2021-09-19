@@ -1,29 +1,16 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import studentRoutes from './routes/student.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-app.use('/student', studentRoutes);
+ReactDOM.render(
+ 
+    <App />,
+  document.getElementById('root')
+);
 
-const app = express();
-
-app.use(bodyParser.OptionsJson({limit: "20mb", extended:true}));
-app.use(bodyParser.Optionsurlencoded({limit: "20mb", extended:true}));
-
-app.use(cors());
-
-
-const CONNECTIONT_URL = 'mongodb+srv://B2BCarlos:Corioto1990@cluster0.hvnq7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
-const PORT = process.env.PORT || 5000;
-
-mongoose.connect(CONNECTIONT_URL, {
-    useNewUrlParser:true, useUnifiedTopology:true
-}).then(() => app.listen(PORT, () =>
-console.log(`Connection is established and running on port: ${PORT}`)
-)).catch((err) => console.log(err.message));
-
-
-mongoose.set('useFindAndModify' ,false);
-
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
